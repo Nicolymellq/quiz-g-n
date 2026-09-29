@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Quiz - Examination</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+   
+
+
+
+    <!-- =========================================
+         QUIZ
+    ========================================== -->
+
+    <div class="quiz-container">
+
+        <h1>
+            Quiz - Examination
+        </h1>
+
+
+        <h2 id="pergunta">
+            Pergunta
+        </h2>
+
+
+        <div id="alternativas"></div>
+
+
+        <p id="resultado"></p>
+
+    </div>
+
+
+
+    <!-- =========================================
+         HUD DA MÁSCARA
+    ========================================== -->
+
+    <div id="mascara-overlay">
+
+
+        <!-- Escurecimento da tela -->
+
+        <div id="escurecimento"></div>
+
+
+
+        <!-- =====================================
+             LENTE ESQUERDA
+        ====================================== -->
+
+        <div class="lente lente-esquerda">
+
+            <div class="trinca trinca-1"></div>
+
+            <div class="trinca trinca-2"></div>
+
+            <div class="trinca trinca-3"></div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             LENTE DIREITA
+        ====================================== -->
+
+        <div class="lente lente-direita">
+
+            <div class="trinca trinca-4"></div>
+
+            <div class="trinca trinca-5"></div>
+
+            <div class="trinca trinca-6"></div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             SANGUE
+        ====================================== -->
+
+        <div id="sangue-mask"></div>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         BARRA DE SANIDADE
+    ========================================== -->
+
+    <div id="sanidade-container">
+
+
+        <div id="sanidade-label">
+            SANIDADE
+        </div>
+
+
+        <div id="sanidade-barra">
+
+            <div id="sanidade-progresso"></div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         TELA DE MORTE DO GILBERT
+    ========================================== -->
+
+    <div id="gilbert-overlay">
+
+
+        <div id="gilbert-container">
+
+
+            <!-- Imagem do Gilbert -->
+
+            <img
+                id="gilbert-img"
+                src="https://static.wikitide.net/examinationwiki/b/b7/Gilbert_Var_2.png"
+                alt="Gilbert"
+            >
+
+
+            <!-- Frase do Gilbert -->
+
+            <div id="gilbert-frase">
+
+                I TOLD YOU TO STAY AWAY, BUT NO!<br>
+
+                YOU JUST HAD TO KEEP COMING BACK!
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

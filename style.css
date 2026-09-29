@@ -1,0 +1,1868 @@
+/* =========================================
+   CONFIGURAÇÃO GERAL
+========================================= */
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-color: #10170d;
+
+    background-image:
+        radial-gradient(
+            ellipse at 15% 20%,
+            #26351c 0%,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            ellipse at 80% 15%,
+            #172315 0%,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            ellipse at 45% 45%,
+            #344025 0%,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            ellipse at 90% 70%,
+            #202d19 0%,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            ellipse at 20% 85%,
+            #303b21 0%,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            ellipse at 65% 90%,
+            #131d10 0%,
+            transparent 35%
+        );
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    margin: 0;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   CAIXA PRINCIPAL DO QUIZ
+========================================= */
+
+.quiz-container {
+
+    position: relative;
+
+    z-index: 100;
+
+    background-color:
+        rgba(10, 15, 8, 0.90);
+
+    width: 400px;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid #3b4a29;
+
+    box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.9),
+        inset 0 0 15px
+        rgba(50, 70, 30, 0.15);
+
+    text-align: center;
+
+    color: #d8dec9;
+
+    animation:
+        aparecer 0.8s ease;
+}
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.95);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   PERGUNTA
+========================================= */
+
+#pergunta {
+
+    background: transparent;
+
+    color: #e1e5d5;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+    transition:
+        all 0.3s ease;
+
+    cursor: default;
+}
+
+
+#pergunta:hover {
+
+    color: #aebd7d;
+
+    transform:
+        scale(1.04);
+
+    text-shadow:
+        0 0 5px
+        rgba(130, 160, 80, 0.5),
+
+        0 0 10px
+        rgba(130, 160, 80, 0.2);
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin: 5px 0;
+
+    border:
+        1px solid #455633;
+
+    border-radius: 5px;
+
+    background-color:
+        rgba(27, 39, 20, 0.90);
+
+    color: #dfe5d2;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+button:hover {
+
+    background-color:
+        #354627;
+
+    border-color:
+        #647747;
+
+    box-shadow:
+        0 0 10px
+        rgba(80, 100, 50, 0.35);
+
+    transform:
+        translateY(-2px);
+}
+
+
+button:active {
+
+    transform:
+        scale(0.96);
+}
+
+
+/* =========================================
+   RESPOSTA CORRETA
+========================================= */
+
+.correct {
+
+    background-color:
+        #315326 !important;
+
+    border-color:
+        #72a34e !important;
+
+    color:
+        #eaffd8 !important;
+
+    box-shadow:
+        0 0 15px
+        rgba(80, 160, 60, 0.5);
+
+    animation:
+        acertou 0.4s ease;
+}
+
+
+@keyframes acertou {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================
+   RESPOSTA ERRADA
+========================================= */
+
+.wrong {
+
+    background-color:
+        #542323 !important;
+
+    border-color:
+        #9b3d3d !important;
+
+    color:
+        #ffdada !important;
+
+    animation:
+        erro 0.4s ease;
+}
+
+
+@keyframes erro {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-8px);
+    }
+
+    40% {
+        transform: translateX(8px);
+    }
+
+    60% {
+        transform: translateX(-6px);
+    }
+
+    80% {
+        transform: translateX(6px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================
+   NOVA PERGUNTA
+========================================= */
+
+.nova-pergunta {
+
+    animation:
+        novaPergunta 0.5s ease;
+}
+
+
+@keyframes novaPergunta {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================================
+   RESULTADO
+========================================= */
+
+#resultado {
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+    color: #c4d09e;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.resultado-aparecer {
+
+    animation:
+        resultado 0.6s ease;
+}
+
+
+@keyframes resultado {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.7);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+.resetando {
+
+    animation:
+        resetQuiz 0.6s ease;
+}
+
+
+@keyframes resetQuiz {
+
+    0% {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+    }
+
+    50% {
+
+        transform:
+            scale(0.90)
+            rotate(-2deg);
+
+        opacity: 0.3;
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   🧠 CÉREBRO / SANIDADE
+===================================================== */
+
+#sanidade {
+
+    position: fixed;
+
+    top: 25px;
+
+    right: 25px;
+
+    width: 130px;
+
+    height: 130px;
+
+    z-index: 9000;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    pointer-events: none;
+
+    transition:
+        all 0.5s ease;
+}
+
+
+#cerebro-sanidade {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    transition:
+        filter 0.8s ease,
+        transform 0.5s ease;
+
+    /* VERDE */
+
+    filter:
+        hue-rotate(145deg)
+        saturate(1.8)
+        brightness(0.9);
+
+    animation:
+        cerebroNormal
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================
+   🟢 SANIDADE NORMAL
+========================================= */
+
+#sanidade.normal #cerebro-sanidade {
+
+    filter:
+        hue-rotate(145deg)
+        saturate(1.8)
+        brightness(0.9);
+
+    animation:
+        cerebroNormal
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes cerebroNormal {
+
+    0% {
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            scale(1.04);
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   🟡 PRIMEIRO ERRO
+========================================= */
+
+#sanidade.alerta #cerebro-sanidade {
+
+    filter:
+        hue-rotate(75deg)
+        saturate(2.5)
+        brightness(1.1);
+
+    animation:
+        cerebroAlerta
+        1.2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes cerebroAlerta {
+
+    0% {
+
+        transform:
+            scale(1);
+
+        filter:
+            hue-rotate(85deg)
+            saturate(1.8)
+            brightness(0.9);
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+        filter:
+            hue-rotate(65deg)
+            saturate(2.8)
+            brightness(1.2);
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+        filter:
+            hue-rotate(85deg)
+            saturate(1.8)
+            brightness(0.9);
+    }
+}
+
+
+/* =========================================
+   🔴 SEGUNDO ERRO
+========================================= */
+
+#sanidade.critica #cerebro-sanidade {
+
+    filter:
+        hue-rotate(0deg)
+        saturate(4)
+        brightness(0.9);
+
+    animation:
+        cerebroCritico
+        0.35s
+        ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes cerebroCritico {
+
+    from {
+
+        transform:
+            scale(1);
+
+        filter:
+            hue-rotate(10deg)
+            saturate(2.5)
+            brightness(0.7);
+    }
+
+    to {
+
+        transform:
+            scale(1.12);
+
+        filter:
+            hue-rotate(0deg)
+            saturate(4)
+            brightness(1.1);
+    }
+}
+
+
+/* =========================================
+   IMPACTO DO ERRO
+========================================= */
+
+#sanidade.perdeu-sanidade {
+
+    animation:
+        impactoSanidade
+        0.6s
+        ease;
+}
+
+
+@keyframes impactoSanidade {
+
+    0% {
+
+        transform:
+            scale(1);
+    }
+
+    25% {
+
+        transform:
+            scale(1.2)
+            rotate(-5deg);
+    }
+
+    50% {
+
+        transform:
+            scale(0.9)
+            rotate(5deg);
+    }
+
+    75% {
+
+        transform:
+            scale(1.1)
+            rotate(-2deg);
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   🥽 MÁSCARA DE GÁS
+===================================================== */
+
+#mascara-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 8000;
+
+    pointer-events: none;
+
+    display: none;
+
+    overflow: hidden;
+}
+
+
+#mascara-overlay.ativo {
+
+    display: block;
+
+    animation:
+        mascaraEntrando
+        1.5s
+        ease
+        forwards;
+}
+
+
+@keyframes mascaraEntrando {
+
+    from {
+
+        opacity: 0;
+    }
+
+    to {
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   ESCURECIMENTO
+========================================= */
+
+#escurecimento {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.72);
+
+    opacity: 0;
+
+    animation:
+        escurecerTela
+        2s
+        ease
+        forwards;
+}
+
+
+@keyframes escurecerTela {
+
+    from {
+
+        opacity: 0;
+    }
+
+    to {
+
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   👁 LENTES
+===================================================== */
+
+.lente {
+
+    position: absolute;
+
+    width: 31vw;
+
+    height: 31vw;
+
+    max-width: 430px;
+
+    max-height: 430px;
+
+    min-width: 180px;
+
+    min-height: 180px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(2, 8, 5, 0.15) 0%,
+            rgba(2, 8, 5, 0.55) 55%,
+            rgba(0, 0, 0, 0.94) 100%
+        );
+
+    border:
+        10px solid
+        rgba(12, 17, 12, 0.95);
+
+    box-shadow:
+
+        inset
+        0 0 35px
+        rgba(0, 0, 0, 0.95),
+
+        0 0 25px
+        rgba(0, 0, 0, 0.9);
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    animation:
+        lentesAparecer
+        1.2s
+        ease
+        0.4s
+        forwards;
+}
+
+
+.lente-esquerda {
+
+    left: 7%;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%)
+        rotate(-4deg);
+}
+
+
+.lente-direita {
+
+    right: 7%;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%)
+        rotate(4deg);
+}
+
+
+@keyframes lentesAparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-50%)
+            scale(0.8);
+    }
+
+    to {
+
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   💥 TRINCAS
+===================================================== */
+
+.trinca {
+
+    position: absolute;
+
+    height: 2px;
+
+    background:
+        rgba(210, 215, 200, 0.75);
+
+    box-shadow:
+        0 0 3px
+        rgba(255, 255, 255, 0.3);
+
+    transform-origin:
+        left center;
+
+    opacity: 0;
+}
+
+
+/* =========================================
+   LENTE ESQUERDA
+========================================= */
+
+.trinca-1 {
+
+    width: 65%;
+
+    top: 35%;
+
+    left: 20%;
+
+    transform:
+        rotate(25deg);
+}
+
+
+.trinca-2 {
+
+    width: 45%;
+
+    top: 52%;
+
+    left: 25%;
+
+    transform:
+        rotate(-40deg);
+}
+
+
+.trinca-3 {
+
+    width: 38%;
+
+    top: 62%;
+
+    left: 42%;
+
+    transform:
+        rotate(70deg);
+}
+
+
+/* =========================================
+   LENTE DIREITA
+========================================= */
+
+.trinca-4 {
+
+    width: 60%;
+
+    top: 40%;
+
+    left: 15%;
+
+    transform:
+        rotate(-30deg);
+}
+
+
+.trinca-5 {
+
+    width: 48%;
+
+    top: 55%;
+
+    left: 35%;
+
+    transform:
+        rotate(45deg);
+}
+
+
+.trinca-6 {
+
+    width: 35%;
+
+    top: 30%;
+
+    left: 40%;
+
+    transform:
+        rotate(80deg);
+}
+
+
+/* =========================================
+   APARECER TRINCAS
+========================================= */
+
+#mascara-overlay.quebrada
+.trinca {
+
+    animation:
+        trincaAparecer
+        0.8s
+        ease
+        forwards;
+}
+
+
+@keyframes trincaAparecer {
+
+    0% {
+
+        opacity: 0;
+
+        width: 0;
+    }
+
+    100% {
+
+        opacity: 0.85;
+    }
+}
+
+
+/* =========================================
+   VIDRO QUEBRANDO
+========================================= */
+
+#mascara-overlay.quebrando
+.lente {
+
+    animation:
+
+        lenteQuebrando
+        0.6s
+        ease,
+
+        lentesTremendo
+        0.15s
+        ease
+        0.6s
+        3;
+}
+
+
+@keyframes lenteQuebrando {
+
+    0% {
+
+        filter:
+            brightness(1);
+    }
+
+    50% {
+
+        filter:
+            brightness(2);
+    }
+
+    100% {
+
+        filter:
+            brightness(0.55);
+    }
+}
+
+
+@keyframes lentesTremendo {
+
+    0% {
+
+        margin-left: 0;
+    }
+
+    50% {
+
+        margin-left: 8px;
+    }
+
+    100% {
+
+        margin-left: -8px;
+    }
+}
+
+
+/* =====================================================
+   🩸 SANGUE
+===================================================== */
+
+#sangue-mask {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at 8% 50%,
+            rgba(130, 0, 0, 0.75) 0%,
+            rgba(80, 0, 0, 0.4) 12%,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            ellipse at 92% 50%,
+            rgba(130, 0, 0, 0.75) 0%,
+            rgba(80, 0, 0, 0.4) 12%,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            to bottom,
+            transparent 55%,
+            rgba(100, 0, 0, 0.3) 75%,
+            rgba(120, 0, 0, 0.7) 100%
+        );
+}
+
+
+#mascara-overlay.quebrada
+#sangue-mask {
+
+    opacity: 1;
+
+    animation:
+        sangueAparecer
+        2s
+        ease
+        forwards;
+}
+
+
+@keyframes sangueAparecer {
+
+    from {
+
+        opacity: 0;
+    }
+
+    to {
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   SANGUE ESCORRENDO
+========================================= */
+
+#sangue-mask::before,
+#sangue-mask::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    width: 5px;
+
+    height: 0;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #7d0000,
+            #350000
+        );
+
+    border-radius:
+        0 0 10px 10px;
+
+    box-shadow:
+        0 0 8px
+        rgba(150, 0, 0, 0.5);
+}
+
+
+#sangue-mask::before {
+
+    left: 13%;
+
+    animation:
+        sangueEscorrendo
+        4s
+        ease-in-out
+        1s
+        infinite;
+}
+
+
+#sangue-mask::after {
+
+    right: 15%;
+
+    animation:
+        sangueEscorrendo
+        5s
+        ease-in-out
+        2s
+        infinite;
+}
+
+
+@keyframes sangueEscorrendo {
+
+    0% {
+
+        height: 0;
+    }
+
+    40% {
+
+        height: 100px;
+    }
+
+    70% {
+
+        height: 180px;
+    }
+
+    100% {
+
+        height: 220px;
+
+        opacity: 0.3;
+    }
+}
+
+
+/* =====================================================
+   ⏳ BARRA DE SANIDADE
+===================================================== */
+
+#sanidade-container {
+
+    position: fixed;
+
+    right: 25px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 18px;
+
+    height: 280px;
+
+    z-index: 8500;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+#sanidade-container.ativo {
+
+    display: flex;
+
+    animation:
+        sanidadeEntrar
+        0.7s
+        ease;
+}
+
+
+@keyframes sanidadeEntrar {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-50%)
+            translateX(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(-50%)
+            translateX(0);
+    }
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+#sanidade-label {
+
+    position: absolute;
+
+    right: 35px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%)
+        rotate(-90deg);
+
+    color: #68735b;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   FUNDO DA BARRA
+========================================= */
+
+#sanidade-barra {
+
+    position: relative;
+
+    width: 12px;
+
+    height: 100%;
+
+    background:
+        rgba(5, 8, 5, 0.85);
+
+    border:
+        1px solid #394333;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow:
+
+        inset
+        0 0 8px #000,
+
+        0 0 8px
+        rgba(0, 0, 0, 0.7);
+}
+
+
+/* =========================================
+   PROGRESSO
+========================================= */
+
+#sanidade-progresso {
+
+    position: absolute;
+
+    bottom: 1px;
+
+    left: 0;
+
+    width: 100%;
+
+    height: calc(100% - 2px);
+
+    background:
+
+        linear-gradient(
+            to top,
+            #420000,
+            #9b1818,
+            #667335
+        );
+
+    border-radius: 8px;
+
+    transform-origin:
+        bottom;
+
+    transform:
+        scaleY(1);
+
+    transition:
+
+        transform
+        0.5s
+        linear,
+
+        background
+        0.5s
+        ease;
+
+    box-shadow:
+        0 0 8px
+        rgba(100, 20, 20, 0.6);
+}
+
+
+/* =========================================
+   SANIDADE CRÍTICA
+========================================= */
+
+#sanidade-container.critica
+#sanidade-progresso {
+
+    background:
+
+        linear-gradient(
+            to top,
+            #220000,
+            #ff1717
+        );
+
+    animation:
+        sanidadePulso
+        0.5s
+        infinite
+        alternate;
+}
+
+
+@keyframes sanidadePulso {
+
+    from {
+
+        filter:
+            brightness(0.8);
+    }
+
+    to {
+
+        filter:
+            brightness(1.5);
+    }
+}
+
+
+/* =========================================
+   MORTE POR SANIDADE
+========================================= */
+
+#mascara-overlay.morrendo {
+
+    animation:
+        morteSanidade
+        2s
+        ease
+        forwards;
+}
+
+
+@keyframes morteSanidade {
+
+    0% {
+
+        filter:
+            brightness(1);
+    }
+
+    50% {
+
+        filter:
+            brightness(0.3);
+    }
+
+    100% {
+
+        filter:
+            brightness(0);
+    }
+}
+
+
+/* =====================================================
+   👹 TELA DO GILBERT
+===================================================== */
+
+#gilbert-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        #000;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+
+    overflow: hidden;
+}
+
+
+#gilbert-overlay.ativo {
+
+    display: flex;
+
+    animation:
+        telaMorte
+        0.5s
+        ease
+        forwards;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+#gilbert-container {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   GILBERT
+========================================= */
+
+#gilbert-img {
+
+    max-width: 75vw;
+
+    max-height: 65vh;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+    opacity: 0;
+
+    transform:
+
+        scale(0.3)
+        translateY(100px);
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(255, 255, 255, 0.05)
+        );
+
+    animation:
+        gilbertEntrada
+        1s
+        ease-out
+        forwards;
+}
+
+
+/* =========================================
+   FRASE
+========================================= */
+
+#gilbert-frase {
+
+    max-width: 850px;
+
+    margin-top: 25px;
+
+    padding: 0 20px;
+
+    color: #e8e8e8;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(
+            16px,
+            2.2vw,
+            28px
+        );
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+    opacity: 0;
+
+    text-shadow:
+
+        0 0 5px #000,
+
+        0 0 10px #000,
+
+        0 0 20px #000;
+
+    animation:
+
+        fraseAparecer
+        0.8s
+        ease
+        1s
+        forwards;
+}
+
+
+/* =========================================
+   TELA DE MORTE
+========================================= */
+
+@keyframes telaMorte {
+
+    0% {
+
+        opacity: 0;
+    }
+
+    100% {
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   ENTRADA DO GILBERT
+========================================= */
+
+@keyframes gilbertEntrada {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.3)
+            translateY(100px);
+    }
+
+    60% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.08)
+            translateY(-10px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   FRASE
+========================================= */
+
+@keyframes fraseAparecer {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   ATAQUE
+========================================= */
+
+.gilbert-ataque {
+
+    animation:
+        gilbertAtaque
+        0.45s
+        ease-in-out
+        !important;
+}
+
+
+@keyframes gilbertAtaque {
+
+    0% {
+
+        transform:
+            scale(1);
+    }
+
+    25% {
+
+        transform:
+            scale(1.08)
+            translateX(-10px);
+    }
+
+    50% {
+
+        transform:
+            scale(1.18)
+            translateX(10px);
+    }
+
+    75% {
+
+        transform:
+            scale(1.12)
+            translateX(-5px);
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   FLASH
+========================================= */
+
+#gilbert-overlay.flash::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        white;
+
+    pointer-events:
+        none;
+
+    animation:
+        flashAtaque
+        0.25s
+        ease-out;
+}
+
+
+@keyframes flashAtaque {
+
+    0% {
+
+        opacity: 0.8;
+    }
+
+    100% {
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   📱 RESPONSIVO
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .quiz-container {
+
+        width: calc(100vw - 60px);
+
+        padding: 20px;
+    }
+
+
+    .lente {
+
+        width: 42vw;
+
+        height: 42vw;
+
+        min-width: 130px;
+
+        min-height: 130px;
+    }
+
+
+    .lente-esquerda {
+
+        left: -5%;
+    }
+
+
+    .lente-direita {
+
+        right: -5%;
+    }
+
+
+    #sanidade-container {
+
+        right: 8px;
+
+        width: 15px;
+
+        height: 220px;
+    }
+
+
+    #sanidade-barra {
+
+        width: 9px;
+    }
+
+
+    #sanidade-progresso {
+
+        width: 9px;
+    }
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    #sanidade {
+
+        width: 90px;
+
+        height: 90px;
+
+        top: 10px;
+
+        right: 10px;
+    }
+
+
+    #gilbert-img {
+
+        max-width: 90vw;
+
+        max-height: 55vh;
+    }
+
+
+    #gilbert-frase {
+
+        font-size: 15px;
+
+        padding: 0 15px;
+    }
+
+
+    #pergunta {
+
+        font-size: 19px;
+    }
+}
